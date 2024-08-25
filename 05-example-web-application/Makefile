@@ -9,6 +9,14 @@ run-postgres:
 		-p 5432:5432 \
 		postgres:15.1-alpine
 
+
+.PHONY: run-api-node-windows
+run-api-node-windows:
+	@echo Starting node api
+	cd api-node && \
+		set DATABASE_URL=$(DATABASE_URL) && \
+		npm run dev
+
 .PHONY: run-api-node
 run-api-node:
 	@echo Starting node api
